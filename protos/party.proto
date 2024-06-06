@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option go_package = "genproto/";
+
+package protos;
+
+import "common.proto";
+
+service PartyService {
+	rpc CreateParty (PartyCreate) returns (Void) {}
+	rpc GetParty (GetByIdReq) returns (PartyRes) {}
+	rpc GetAllParty (Filter) returns (GetAllPartysResponse) {}
+	rpc UpdateParty (PartyUpdate) returns (Void) {}
+	rpc DeleteParty(GetByIdReq) returns (Void) {}
+}
+
+message Party {
+	string id = 1;
+	string name = 2;
+	string slogan = 3;
+	string opened_date = 4;
+	string description = 5;
+	string created_at = 6;
+	string updated_at = 7;
+	string deleted_at = 8;
+}
+
+message PartyCreate {
+	string name = 1;
+	string slogan = 2;
+	string opened_date = 3;
+	string description = 4;
+}
+
+message PartyRes {
+	string id = 1;
+	string name = 2;
+	string slogan = 3;
+	string opened_date = 4;
+	string description = 5;
+}
+
+message PartyUpdate {
+	string name = 2;
+	string slogan = 3;
+	string opened_date = 4;
+	string description = 5;
+}
+
+message GetAllPartysResponse {
+	repeated PartyRes party = 1;
+}
