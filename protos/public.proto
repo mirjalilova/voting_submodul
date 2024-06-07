@@ -8,53 +8,59 @@ import "party.proto";
 import "common.proto";
 
 service PublicService {
-rpc Create (PublicCreate) returns (Void) {}
-rpc Get (GetByIdReq) returns (PublicRes) {}
-rpc GetAll (Filter) returns (GetAllPublicsResponse) {}
-rpc Update (PublicUpdate) returns (Void) {}
-rpc Delete(GetByIdReq) returns (Void) {}
+  rpc Create (PublicCreate) returns (Void) {}
+  rpc Get (GetByIdReq) returns (PublicRes) {}
+  rpc GetAll (GetAllPublicsRequest) returns (GetAllPublicsResponse) {}
+  rpc Update (PublicUpdate) returns (Void) {}
+  rpc Delete (GetByIdReq) returns (Void) {}
 }
 
 message Public {
-string id = 1;
-string first_name = 2;
-string last_name = 3;
-string birthday = 4;
-string gender = 5;
-string nation = 6;
-string party_id = 7;
-string created_at = 8;
-string updated_at = 9;
-string deleted_at = 10;
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string birthday = 4;
+  string gender = 5;
+  string nation = 6;
+  string party_id = 7;
+  string created_at = 8;
+  string updated_at = 9;
+  string deleted_at = 10;
 }
 
 message PublicCreate {
-string first_name = 1;
-string last_name = 2;
-string birthday = 3;
-string gender = 4;
-string nation = 5;
-string party_id = 6;
+  string first_name = 1;
+  string last_name = 2;
+  string birthday = 3;
+  string gender = 4;
+  string nation = 5;
+  string party_id = 6;
 }
 
 message PublicRes {
-string id = 1;
-string first_name = 2;
-string last_name = 3;
-string birthday = 4;
-string gender = 5;
-string nation = 6;
-PartyRes party = 7;
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string birthday = 4;
+  string gender = 5;
+  string nation = 6;
+  PartyRes party = 7;
 }
 
 message PublicUpdate {
-string first_name = 1;
-string last_name = 2;
-string birthday = 3;
-string nation = 4;
-string party_id = 5;
+  string first_name = 1;
+  string last_name = 2;
+  string birthday = 3;
+  string nation = 4;
+  string party_id = 5;
+}
+
+message GetAllPublicsRequest {
+  string gender = 1;
+  string nation = 2;
+  Filter filter = 3;
 }
 
 message GetAllPublicsResponse {
-repeated PublicRes public = 1;
+  repeated PublicRes public = 1;
 }

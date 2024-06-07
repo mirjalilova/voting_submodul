@@ -9,7 +9,7 @@ import "common.proto";
 service PartyService {
 	rpc CreateParty (PartyCreate) returns (Void) {}
 	rpc GetParty (GetByIdReq) returns (PartyRes) {}
-	rpc GetAllParty (Filter) returns (GetAllPartysResponse) {}
+	rpc GetAllParty (GetAllPartysRequest) returns (GetAllPartysResponse) {}
 	rpc UpdateParty (PartyUpdate) returns (Void) {}
 	rpc DeleteParty(GetByIdReq) returns (Void) {}
 }
@@ -45,6 +45,12 @@ message PartyUpdate {
 	string slogan = 3;
 	string opened_date = 4;
 	string description = 5;
+}
+
+message GetAllPartysRequest {
+	string name = 1;
+	string opened_date = 2;
+	Filter filter = 3;
 }
 
 message GetAllPartysResponse {
