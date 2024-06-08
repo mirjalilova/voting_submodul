@@ -42,7 +42,7 @@ message PartyRes {
 
 message PartyUpdate {
 		PartyCreate updateParty = 1;
-		GetById id = 2;
+		GetByIdReq id = 2;
 }
 
 message GetAllPartysRequest {

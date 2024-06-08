@@ -49,7 +49,7 @@ message PublicRes {
 
 message PublicUpdate {
     PublicCreate updatePublic = 1;
-    GetById id = 2;
+    GetByIdReq id = 2;
 }
 
 message GetAllPublicsRequest {
