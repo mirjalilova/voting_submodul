@@ -41,10 +41,8 @@ message PartyRes {
 }
 
 message PartyUpdate {
-	string name = 2;
-	string slogan = 3;
-	string opened_date = 4;
-	string description = 5;
+		PartyCreate updateParty = 1;
+		GetById id = 2;
 }
 
 message GetAllPartysRequest {
